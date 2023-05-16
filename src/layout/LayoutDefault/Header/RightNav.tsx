@@ -35,7 +35,7 @@ function RightNav() {
         <div className={`${FLEX["center_"]} gap-2 sm:flex hidden`}>
           <Button
             title="Đăng nhập"
-            className={`bg-[#53535f61] hover:bg-[#53535f61]/80 rounded text-white`}
+            className={`bg-[#53535f61]  hover:bg-[#53535f61]/80 rounded text-white`}
           />
           <Button
             title="Đăng ký"
