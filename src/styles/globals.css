@@ -1,3 +1,225 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.css-1n7gpw1-MuiSkeleton-root {
+}
+
+.skeleton-video span {
+  transform-origin: 0 0 !important;
+  transform: scale(1, 1) !important;
+  background-color: rgba(255, 255, 255, 0.13) !important;
+}
+.metastream-banner-mobile .slick-list {
+  padding: 0px !important;
+}
+.metastream-banner .slick-dots {
+  margin-top: 16px;
+  position: relative !important;
+  bottom: 0px !important;
+}
+.metastream-banner .slick-track {
+  display: flex;
+  align-items: center;
+}
+.metastream-banner .slick-slide video,
+.metastream-banner .slick-active .img-slick {
+  display: none;
+}
+
+.metastream-banner .slick-slide .video-not-center::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background: linear-gradient(
+    180deg,
+    rgba(17, 11, 20, 0.7) 0%,
+    rgba(17, 11, 20, 0) 48.44%,
+    rgba(17, 11, 20, 0.7) 100%
+  );
+  z-index: 30;
+}
+.metastream-banner .slick-active video {
+  display: block !important;
+}
+.headerCardContainer {
+  height: 300px;
+  margin: 1rem;
+  position: relative;
+  border-radius: 2rem;
+}
+.metastream-banner div.slick-active + div .video-not-center {
+  padding-top: 50% !important;
+}
+.metastream-banner .center-banner div.slick-active + div {
+  margin-left: 0px !important;
+}
+.metastream-banner div.slick-active + div {
+  margin-left: -90px;
+}
+.metastream-banner .slick-active .nft-stream {
+  display: block;
+}
+.metastream-banner .slick-arrow {
+  display: none !important;
+}
+.headerCardContent {
+  background-clip: padding-box;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 -200px 200px 0 rgb(0 0 0 / 80%);
+  display: flex;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: 2rem;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.headerCardContentVideo {
+  background-clip: padding-box;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 -200px 200px 0 rgb(0 0 0 / 80%);
+  background-color: transparent;
+  display: flex;
+  overflow: hidden;
+  border-radius: 2rem;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.headerCardContentVideo::before {
+  content: "";
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.banner-video-shadow {
+  box-shadow: inset 0 -200px 200px 0 rgb(0 0 0 / 80%);
+  border-radius: 2rem;
+}
+.metastream-banner .slick-dots li,
+.metastream-banner-mobile .slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 4px;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+.metastream-banner .slick-dots li button,
+.metastream-banner-mobile .slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 50px;
+  height: 4px;
+  padding: 5px;
+  cursor: pointer;
+  color: white;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.metastream-banner .slick-dots .slick-active button::before,
+.metastream-banner-mobile .slick-dots .slick-active button::before {
+  opacity: 1 !important;
+}
+.metastream-banner .slick-dots li button::before,
+.metastream-banner-mobile .slick-dots li button::before {
+  font-family: "slick";
+  font-size: 6px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  content: "";
+  /* padding: 0px 60px; */
+  text-align: center;
+  opacity: 0.25;
+  color: white;
+  background: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.headerCardContentLoading {
+  background-clip: padding-box;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 -200px 200px 0 rgb(0 0 0 / 80%);
+  display: flex;
+  overflow: hidden;
+  border-radius: 2rem;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.slick-arrow {
+  display: none !important;
+}
+.skeleton-margin-loading .slick-slide {
+  margin-right: 16px;
+}
+/*media*/
+@media only screen and (min-width: 768px) {
+  .headerCardContainer {
+    height: 80vh;
+  }
+  .headerCardContent,
+  .headerCardContentLoading {
+    box-shadow: inset 0 -300px 200px 0 rgb(0 0 0 / 80%);
+  }
+  .banner-video-shadow {
+    box-shadow: inset 0 -300px 200px 0 rgb(0 0 0 / 80%);
+  }
+}
+
+.nft-stream {
+  display: none;
+}
+.image-center {
+  margin: auto 0;
+}
+.nft-sold .slick-slide {
+  margin-right: 24px;
+  width: 156px !important;
+}
+.slick-center .video {
+  display: block !important;
+}
+.slick-center .image {
+  display: none !important;
+}
+/* .slick-slide .video {
+  display: none;
+} */
+.slick-slide .image {
+  display: block;
+}
+.style-game .slick-list,
+.style-colletion .slick-list {
+  padding-top: 4px;
+  padding-left: 6px;
+}
+.nfts-full .slick-slide {
+  padding-right: 14px;
+  /* width: 172px !important; */
+}

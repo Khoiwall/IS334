@@ -1,8 +1,10 @@
+import "@/styles/globals.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { NextPageWithLayout } from "@/interfaces/core";
 import { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { store } from "../stores";
-import "@/styles/globals.css";
 import RootLayout from "@/layout/LayoutDefault";
 import { Toaster } from "react-hot-toast";
 

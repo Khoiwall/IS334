@@ -47,7 +47,7 @@ function Button({
   return (
     <>
       {isLink ? (
-        <Link href={url || ""} className={`${FLEX["center"]} no-underline`}>
+        <Link href={url || ""} className={`${FLEX["center"]}  no-underline`}>
           <div
             className={`${className} ${FLEX["center"]} overflow-hidden whitespace-nowrap h-[30px] text-sm font-bold`}
           >
