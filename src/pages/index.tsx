@@ -3,7 +3,7 @@ import SpinnerLoading from "@/components/SpinnerLoadding";
 import Home from "@/layout/Home";
 import dynamic from "next/dynamic";
 import { ReactElement, useEffect, useState } from "react";
-// import SEO from "src/common/components/SEO";
+// import SEO from "@/components/SEO";
 
 function HomePage() {
   const [isWindow, setIsWindow] = useState<boolean>(false);

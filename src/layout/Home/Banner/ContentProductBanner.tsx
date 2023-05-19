@@ -7,7 +7,7 @@ interface Prop {
 function ContentProductBanner({ banner }: Prop) {
   return (
     <div className="mt-6">
-      <h3 className="text-[16px] leading-[24px] font-semobild font-['Poppins'] text-white">
+      <h3 className="text-[16px] leading-[24px] font-semobild font-['Inter'] text-white">
         Nến thơm đang được bán trong video
       </h3>
       <div className="mt-4">

@@ -37,7 +37,7 @@ function ProductCardBannerLoading() {
               </div>
             </div>
             <div className="mt-6">
-              <h3 className="text-[16px] leading-[24px] font-semobild font-['Poppins'] text-white">
+              <h3 className="text-[16px] leading-[24px] font-semobild font-['Inter'] text-white">
                 <Skeleton width="123px" height="24px" />
               </h3>
               <div className="mt-4">
