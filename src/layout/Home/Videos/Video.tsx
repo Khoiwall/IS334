@@ -73,8 +73,12 @@ export default function Video({ video, isLarge }: Props) {
               sizeOfItems={video.sellingProducts.length}
               type="vertical"
             >
-              {video.sellingProducts.map((product: any) => (
-                <SellingProduct product={product} sizeType="small" />
+              {video.sellingProducts.map((product: any, index: number) => (
+                <SellingProduct
+                  product={product}
+                  key={index}
+                  sizeType="small"
+                />
               ))}
             </Carousel>
           </div>
