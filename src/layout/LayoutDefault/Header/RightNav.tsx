@@ -2,29 +2,30 @@ import Button from "@/components/Button";
 import ConvertICon from "@/components/ConvertIcon";
 import Search from "@/components/Search";
 import { FLEX } from "@/contants/FLEX";
+import { SignContext } from "@/context/SignContext";
 import { IconSearch } from "@/icons/Differents";
 import { IconUser } from "@/icons/Users";
 import { useContext, useEffect, useState } from "react";
-// import IconSearch from "src/components/Icon/Search";
-// import Search from "src/components/Search";
-// import Button from "src/components/Button";
-// import ConvertICon from "src/components/ConvertICon";
-// import IconUser from "src/components/Icon/User";
-// import ModalHeader from "./Modal";
-// import ImageAndGif from "src/components/ImageAndGif";
 
 function RightNav() {
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const { openModalSign } = useContext(SignContext);
 
   return (
     <div className={`${FLEX["center_end"]} text-white sm:gap-4`}>
       <div className={`${FLEX["center_"]} gap-2 sm:flex hidden`}>
         <Button
           title="Đăng nhập"
+          onClick={() => {
+            openModalSign("Đăng nhập");
+          }}
           className={`bg-[#53535f61]  hover:bg-[#53535f61]/80 rounded text-white`}
         />
         <Button
           title="Đăng ký"
+          onClick={() => {
+            openModalSign("Đăng ký");
+          }}
           className={`bg-primary hover:bg-primary/80 rounded text-t-primary`}
         />
       </div>
@@ -34,7 +35,8 @@ function RightNav() {
             "hover:bg-[#53535f7a] rounded" // userRedux ? "" : "hover:bg-[#53535f7a] rounded"
           }`}
           onClick={() => {
-            setOpenModal(!openModal);
+            openModalSign("Đăng nhập");
+            // setOpenModal(!openModal);
           }}
         >
           <ConvertICon Icon={IconUser} width="20" height="20" fill="white" />

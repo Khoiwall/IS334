@@ -37,7 +37,7 @@ function Home() {
 
   return (
     <div className="pt-[54px] py-16">
-      <div className="md:ml-[300px] text-white">
+      <div className="text-white">
         <div className="max-w-[1920px] 3xl:mx-auto 2xl:mx-14 xl:mx-10 md:mx-8 mx-4">
           {isLoadingBanner ? (
             banners?.length !== 0 ? (
@@ -68,16 +68,6 @@ function Home() {
               </div>
             ) : null
           ) : null}
-          {/* {isLoadingShop ? (
-            shops?.length !== 0 ? (
-              <div>
-                <Header nextOrPrev={nextOrPrevVideo} title="Shop bán chạy" />
-                <VideoList sliderVideo={sliderVideo} videoList={videoList} />
-              </div>
-            ) : null
-          ) : (
-            <LoadingVideo />
-          )} */}
         </div>
       </div>
     </div>

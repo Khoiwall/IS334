@@ -13,8 +13,10 @@ interface Props {
     rating: number;
   };
   sizeType?: string;
+  setWidth?: boolean;
 }
-export default function SellingProduct({ product, sizeType }: Props) {
+export default function SellingProduct({ product, sizeType, setWidth }: Props) {
+  console.log(setWidth);
   switch (sizeType) {
     case "small":
       return <Small product={product} />;
@@ -23,6 +25,6 @@ export default function SellingProduct({ product, sizeType }: Props) {
     case "horizontal":
       return <Horizontal product={product} />;
     default:
-      return <Large product={product} />;
+      return <Large setWidth={setWidth} product={product} />;
   }
 }

@@ -2,6 +2,7 @@ import Search from "@/components/Search";
 import { ZINDEX } from "@/contants/ZINDEX";
 import { IconSearch } from "@/icons/Differents";
 import LogoHeader from "./Logo";
+import NavHeader from "./Nav";
 import RightNav from "./RightNav";
 
 function Header() {
@@ -11,7 +12,10 @@ function Header() {
     >
       <div className="h-[54px] fixed top-0 w-full">
         <div className="flex items-center justify-between px-[30px] h-full">
-          <LogoHeader />
+          <div className="flex items-center gap-5">
+            <LogoHeader />
+            <NavHeader />
+          </div>
           <Search
             placeholder="search"
             isIcon={true}

@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+.required::after {
+  content: " *";
+  color: red;
+}
+
 .css-1n7gpw1-MuiSkeleton-root {
 }
 

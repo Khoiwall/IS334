@@ -12,10 +12,12 @@ interface Props {
     discount: number;
     rating: number;
   };
+  setWidth?: boolean;
 }
-export default function Large({ product }: Props) {
+export default function Large({ product, setWidth }: Props) {
+  console.log(setWidth);
   return (
-    <div className={`w-[245px] min-w-[245px]`}>
+    <div className={`${setWidth ? "w-full" : "w-[245px] min-w-[245px]"}`}>
       <img
         className="rounded-[20px]"
         src={
