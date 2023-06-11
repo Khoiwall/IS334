@@ -3,14 +3,37 @@ import ConvertICon from "@/components/ConvertIcon";
 import { IconX } from "@/components/Icon/Generate";
 import LayOutInput from "@/components/Input";
 import { SignContext } from "@/context/SignContext";
+import { useAppDispatch } from "@/hook/reduxHook";
+import { signIn } from "@/stores/redux/auth/signIn";
+import { signUp } from "@/stores/redux/auth/signUp";
 import { useContext, useState } from "react";
 
 function Modal() {
   const { closeModalSign, title, openModalSign } = useContext(SignContext);
   const [error, setError] = useState<boolean[]>([false, false, false, false]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
 
-  const sign = async () => {};
+  const sign = async (e: any) => {
+    e?.preventDefault();
+    if (title === "Đăng ký") {
+      setIsLoading(true);
+      await dispatch(
+        await signUp(
+          e?.target?.userName?.value,
+          e?.target?.email?.value,
+          e?.target?.password?.value
+        )
+      );
+      setIsLoading(false);
+    } else {
+      setIsLoading(true);
+      await dispatch(
+        await signIn(e?.target?.email?.value, e?.target?.password?.value)
+      );
+      setIsLoading(false);
+    }
+  };
   return (
     <div className="bg-[#1B161E] md:min-w-[500px] flex flex-col justify-between rounded-xl relative">
       <div
@@ -31,7 +54,7 @@ function Modal() {
               </div>
             </div>
           </div>
-          <form onClick={sign}>
+          <form onSubmit={sign}>
             <div className="mt-5">
               {title === "Đăng ký" && (
                 <LayOutInput
@@ -65,7 +88,7 @@ function Modal() {
                 sign={{
                   title: "Mật khẩu",
                   isRequire: true,
-                  type: "text",
+                  type: "password",
                   placeholder: "Mật khẩu",
                   name: "password",
                 }}
@@ -79,6 +102,7 @@ function Modal() {
               />
               <div className="mt-4">
                 <ButtonComponent
+                  type="submit"
                   title={title}
                   isLoading={isLoading}
                   className="bg-primary hover:bg-primary/80 w-full flex items-center justify-center rounded-md"
@@ -95,7 +119,9 @@ function Modal() {
                   }}
                   className="w-full flex justify-center py-1.5 text-sm font-semibold cursor-pointer hover:bg-white/20 rounded-md"
                 >
-                  Bạn có tài khoản? Đăng nhập
+                  {title === "Đăng ký"
+                    ? "Bạn có tài khoản? Đăng nhập"
+                    : "Bạn chưa có tài khoản? Đăng ký"}
                 </div>
               </div>
             </div>

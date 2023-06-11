@@ -1,10 +1,10 @@
 import SpinModalLoading from "@/components/SpinLoadingModal";
 import { ZINDEX } from "@/contants/ZINDEX";
 import { SignContext } from "@/context/SignContext";
-import router, { useRouter } from "next/router";
+import { useAppDispatch, useAppSelector } from "@/hook/reduxHook";
+import { getUser } from "@/stores/redux/auth/getUser";
+import { useRouter } from "next/router";
 import { useContext, useEffect, useRef, useState } from "react";
-import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
 // import { UserAPI } from "src/services/api/v1";
 // import signInAction from "src/stores/reducers/action/signIn";
 import Header from "./Header";
@@ -15,46 +15,42 @@ interface Props {
 }
 
 export default function RootLayout({ children }: Props) {
-  const dispatch = useDispatch();
-
-  const { isOpen } = useContext(SignContext);
-
   const [checkAccount, setCheckAccount] = useState<boolean>(false);
 
+  const dispatch = useAppDispatch();
+  const { user } = useAppSelector((state) => state?.authRedux);
+  const { isOpen, closeModalSign } = useContext(SignContext);
+
   const pathName = useRouter().pathname;
+  const firstReload = useRef(false);
 
-  //   const checkAccountAPI = async () => {
-  //     const response = await UserAPI.CheckUser();
-  //     if (response && response?.data?.status === "Success") {
-  //       dispatch(signInAction("login", response?.data?.user));
-  //       localStorage.setItem("wevaToken", response?.data?.token);
-  //       toast.success("Đăng nhập thành công");
-  //       // router.push("/");
-  //     } else {
-  //       localStorage?.removeItem("wevaToken");
-  //       toast.error(response?.response?.data?.message);
-  //     }
-  //     setCheckAccount(false);
-  //   };
+  useEffect(() => {
+    if (user) {
+      closeModalSign();
+    }
+  }, [user]);
 
-  //   useEffect(() => {
-  //     if (typeof window === undefined) {
-  //       return;
-  //     }
-  //     if (localStorage?.getItem("wevaToken")) {
-  //       if (firstReload.current) {
-  //         return;
-  //       }
-  //       firstReload.current = true;
-  //       checkAccountAPI();
-  //     } else {
-  //       localStorage?.removeItem("wevaToken");
-  //       setCheckAccount(false);
-  //     }
-  //   }, []);
+  const checkAccountAPI = async () => {
+    setCheckAccount(true);
+    await dispatch(await getUser());
+    setCheckAccount(false);
+  };
+
+  useEffect(() => {
+    if (localStorage?.getItem("is334")) {
+      if (firstReload.current) {
+        return;
+      }
+      firstReload.current = true;
+      checkAccountAPI();
+    } else {
+      localStorage?.removeItem("is334");
+      setCheckAccount(false);
+    }
+  }, []);
   return (
     <>
-      {isOpen && <ModalSignInSignUp />}
+      {isOpen && !user && <ModalSignInSignUp />}
       <div
         className={`bg-[#110B14] w-full min-h-screen relative z-[1] ${
           isOpen ? "max-h-[100vh] overflow-hidden" : ""

@@ -26,11 +26,12 @@ function Input({
   backGroundInput,
   padding,
 }: Props) {
-  const [userName, setUserName] = useState<string>("");
+  const [userName, setUserName] = useState<string>(defaultValue || "");
   const { name, placeholder, type, isRequire } = sign;
+
   const onChangeInput = (e: any) => {
     onChange ? onChange(e?.target?.value, name) : null;
-    name === "userName"
+    name === "userName" || name === "name"
       ? setUserName(
           slugify(e?.target?.value, {
             lower: true,
@@ -54,7 +55,7 @@ function Input({
         type={type}
         required={isRequire}
         defaultValue={defaultValue}
-        // value={name === "userName" ? userName : undefined}
+        value={name === "userName" || name === "name" ? userName : undefined}
         onChange={onChangeInput}
         disabled={disable ? true : false}
       />

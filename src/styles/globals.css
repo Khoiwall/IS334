@@ -11,9 +11,15 @@
   color: red;
 }
 
-.css-1n7gpw1-MuiSkeleton-root {
+.icon-hover-dark:hover path {
+  fill: #772ce8;
 }
-
+.icon-hover-dark-stroke:hover path {
+  stroke: #772ce8;
+}
+.edit-avatar:hover .avatar-user {
+  display: flex !important;
+}
 .skeleton-video span {
   transform-origin: 0 0 !important;
   transform: scale(1, 1) !important;
