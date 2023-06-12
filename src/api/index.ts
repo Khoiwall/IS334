@@ -1,3 +1,4 @@
 import AuthAPI from "./auth";
 import UploadAPI from "./upload";
-export { AuthAPI, UploadAPI };
+import ProductAPI from "./product";
+export { AuthAPI, UploadAPI, ProductAPI };

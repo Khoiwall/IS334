@@ -10,6 +10,8 @@ interface Props {
     type: string;
     placeholder: string;
     name: string;
+    min?: number;
+    max?: number;
   };
   defaultValue?: string;
   disable?: boolean;
@@ -27,7 +29,7 @@ function Input({
   padding,
 }: Props) {
   const [userName, setUserName] = useState<string>(defaultValue || "");
-  const { name, placeholder, type, isRequire } = sign;
+  const { name, placeholder, type, isRequire, min, max } = sign;
 
   const onChangeInput = (e: any) => {
     onChange ? onChange(e?.target?.value, name) : null;
@@ -58,6 +60,8 @@ function Input({
         value={name === "userName" || name === "name" ? userName : undefined}
         onChange={onChangeInput}
         disabled={disable ? true : false}
+        min={min || undefined}
+        max={max || undefined}
       />
     </div>
   );

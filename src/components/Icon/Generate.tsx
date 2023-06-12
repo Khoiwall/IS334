@@ -292,7 +292,6 @@ function IconCheck({ width, height, fill, stroke }: any) {
     </svg>
   );
 }
-
 export {
   IconCheck,
   IconTrash,

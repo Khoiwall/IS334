@@ -14,6 +14,8 @@ interface Props {
       _id: string;
       title: string;
     }[];
+    min?: number;
+    max?: number;
   };
   err?: boolean[];
   setErr?: any;
@@ -99,7 +101,7 @@ function LayOutInput({
       <div className="flex-1 flex flex-col mx-0">
         <label
           htmlFor={sign?.name}
-          className={`mb-1 ${
+          className={`mb-1.5 ${
             textSize ? textSize : "sm:text-xl text-base"
           } font-bold text-white ${sign?.isRequire ? "required" : ""}`}
         >

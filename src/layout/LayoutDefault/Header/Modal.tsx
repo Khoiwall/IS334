@@ -29,7 +29,7 @@ const USER = [
   {
     title: "Quản lý Kho",
     Icon: IconManageAsset,
-    url: "/management/product",
+    url: "/management/store",
   },
   {
     title: "Chỉnh sửa thông tin",
