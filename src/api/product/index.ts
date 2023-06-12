@@ -1,5 +1,6 @@
 import { User } from "@/interfaces/user";
 import { createProduct } from "./createProduct";
+import { deleteProducts } from "./deleteProducs";
 import { deleteProduct } from "./deleteProduct";
 import { getProducts } from "./getProducts";
 import { updateDiscount } from "./updateListPrice";
@@ -36,6 +37,9 @@ class ProductAPI {
     }
   ) {
     return await updateProduct(URL_PRODUCTS, _id, option);
+  }
+  static async deleteProducs(_id: string[]) {
+    return await deleteProducts(URL_PRODUCTS, _id);
   }
 }
 export default ProductAPI;

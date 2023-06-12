@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import ButtonComponent from "@/components/ButtonComponent";
 import ConverICon from "@/components/ConvertIcon";
 import { IconSearchSm, IconTrash } from "@/components/Icon/Generate";
+import { ProductAPI } from "@/api";
 // import { ProductAPI } from "src/services/api-v1.5";
 
 interface Props {
@@ -15,18 +16,18 @@ interface Props {
 function Action({ items, setItems, setSearchText }: Props) {
   const [hover, setHover] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  // const deleteProduct = async () => {
-  //   setIsLoading(true);
-  //   const deletedIds = items
-  //     .filter((item: any) => item.isSelected)
-  //     .map((item: any) => item._id);
-  //   const response = await ProductAPI.RemoveProduct(deletedIds);
-  //   if (response.data && response.data.status == "Success") {
-  //     const deletedItems = [...items.filter((item: any) => !item.isSelected)];
-  //     setItems(deletedItems);
-  //   } else toast.error("Error occurs!");
-  //   setIsLoading(false);
-  // };
+  const deleteProduct = async () => {
+    setIsLoading(true);
+    const deletedIds = items
+      .filter((item: any) => item.isSelected)
+      .map((item: any) => item._id);
+    const response = await ProductAPI.deleteProducs(deletedIds);
+    if (response.data && (response.status == 201 || response.status == 200)) {
+      const deletedItems = [...items.filter((item: any) => !item.isSelected)];
+      setItems(deletedItems);
+    } else toast.error("Error occurs!");
+    setIsLoading(false);
+  };
   return (
     <div className="flex flex-col px-10 py-6">
       <div className="relative">
@@ -83,7 +84,7 @@ function Action({ items, setItems, setSearchText }: Props) {
                 height: "20",
                 stroke: hover ? "#110B14" : "#ffffffb3",
               }}
-              // onClick={isLoading ? () => {} : deleteProduct}
+              onClick={isLoading ? () => {} : deleteProduct}
               gapIconAndText="gap-3"
               title="Delete"
               classNameText="text-16 font-medium"
