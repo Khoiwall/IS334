@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/hook/reduxHook";
 import { getUser } from "@/stores/redux/auth/getUser";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useRef, useState } from "react";
+import Footer from "./Footer";
 // import { UserAPI } from "src/services/api/v1";
 // import signInAction from "src/stores/reducers/action/signIn";
 import Header from "./Header";
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: Props) {
               </div>
             ) : null}
             {children}
+            <Footer />
           </div>
         </div>
       </div>

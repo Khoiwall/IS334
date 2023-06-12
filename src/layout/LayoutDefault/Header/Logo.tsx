@@ -1,18 +1,17 @@
 import ConvertICon from "@/components/ConvertIcon";
-import { Logo } from "@/icons/Differents";
+import ImageAndGifNew from "@/components/ImageAndGifNew";
 import Link from "next/link";
 import { useContext } from "react";
 
 function LogoHeader() {
   return (
     <Link href="/" className=" h-full flex items-center">
-      <ConvertICon
-        Icon={Logo}
-        // width="180"
-        height="40"
-        // widthM="180"
-        heightM="40"
-        fill="#9147ff"
+      <ImageAndGifNew
+        className="pt-[40px] pl-[40px] relative"
+        alt="logo"
+        src={
+          "https://ucarecdn.com/b6f3c929-f963-4ad0-b024-e831a4990021/-/preview/200x200/-/quality/smart/-/format/auto/"
+        }
       />
     </Link>
   );
