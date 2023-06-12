@@ -9,6 +9,7 @@ import ImageAndGifNew from "@/components/ImageAndGifNew";
 import RatingStar from "@/components/RatingStar";
 import { CartContext } from "@/context/CartContext";
 import { BigNum } from "@/utils/bigNum";
+import Link from "next/link";
 import { useContext } from "react";
 import ConvertICon from "../ConvertIcon";
 
@@ -37,9 +38,11 @@ export default function Medium({ product }: Props) {
         rounded="rounded-[20px]"
       /> */}
 
-      <div className="my-[8px] text-16 font-semibold mint-ellipsis flex-1">
-        {product.name}
-      </div>
+      <Link href={`/product/${product?._id}`} className="mint-ellipsis block">
+        <div className="my-[8px] text-16 font-semibold mint-ellipsis hover:text-primary">
+          {product.name}
+        </div>
+      </Link>
       <div>
         <span className="text-16 mr-2 font-semibold">
           {product.discount !== 0
