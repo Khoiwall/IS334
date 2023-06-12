@@ -1,3 +1,4 @@
+import ProductAPI from "@/api/product";
 import SEO from "@/components/SEO";
 import SpinnerLoading from "@/components/SpinnerLoadding";
 import Products from "@/layout/Products";
@@ -6,10 +7,15 @@ import { useEffect, useState } from "react";
 
 function ProductsPage() {
   const [isWindow, setIsWindow] = useState<boolean>(false);
+  const [products, setProducts] = useState();
   useEffect(() => {
     if (typeof window !== "undefined") {
       setIsWindow(true);
     }
+    const asyncFunc = async () => {
+      setProducts(await ProductAPI.getProducts());
+    };
+    asyncFunc();
   }, []);
   return (
     <>
@@ -21,7 +27,7 @@ function ProductsPage() {
         }
         url={process.env.NEXT_PUBLIC_METASTREAM}
       />
-      {isWindow ? <Products /> : <SpinnerLoading />}
+      {isWindow ? <Products products={products} /> : <SpinnerLoading />}
     </>
   );
 }
