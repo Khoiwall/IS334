@@ -37,6 +37,7 @@ export default function PreviewSection({ video }: Props) {
       <div className="flex gap-6">
         {video.products.slice(0, 3).map((product: any) => (
           <ImageAndGifNew
+            key={product?._id}
             src={product.images[0]}
             alt={product?.images[0]}
             className="relative pt-[62px] pl-[62px] bg-white rounded-xl"

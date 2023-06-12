@@ -110,6 +110,7 @@ export default function ProductsTab({ products, setProducts }: Props) {
               <div className="grid xl:grid-cols-6 md:grid-cols-5 sm:grid-cols-3 grid-cols-2 xl:gap-7 sm:gap-5 gap-3">
                 {currentProducts.map((product: any, i) => (
                   <button
+                    key={i}
                     className="bg-transparent"
                     onClick={() => {
                       let res = [...products];
