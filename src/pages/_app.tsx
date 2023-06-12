@@ -8,8 +8,8 @@ import { store } from "../stores";
 import RootLayout from "@/layout/LayoutDefault";
 import { Toaster } from "react-hot-toast";
 import { SignContext, SignUseContext } from "@/context/SignContext";
-import ModalSignInSignUp from "@/layout/LayoutDefault/ModalSignInSignUp";
 import { useContext } from "react";
+import { CartProvider } from "@/context/CartContext";
 
 interface IAppProps extends AppProps {
   Component: NextPageWithLayout;
@@ -24,10 +24,12 @@ function MyApp({ Component, pageProps }: IAppProps) {
   return (
     <Provider store={store}>
       <SignUseContext>
-        <RootLayout>
-          <Component {...pageProps} />
-          <Toaster position="top-center" reverseOrder={false} />
-        </RootLayout>
+        <CartProvider>
+          <RootLayout>
+            <Component {...pageProps} />
+            <Toaster position="top-center" reverseOrder={false} />
+          </RootLayout>
+        </CartProvider>
       </SignUseContext>
     </Provider>
   );

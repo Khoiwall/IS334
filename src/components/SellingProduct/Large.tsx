@@ -4,39 +4,32 @@ import ImageAndGifNew from "@/components/ImageAndGifNew";
 import RatingStar from "@/components/RatingStar";
 
 interface Props {
-  product: {
-    id: number;
-    title: string;
-    price: number;
-    image: string;
-    discount: number;
-    rating: number;
-  };
+  product: any;
   setWidth?: boolean;
 }
 export default function Large({ product, setWidth }: Props) {
-  console.log(setWidth);
   return (
     <div className={`${setWidth ? "w-full" : "w-[245px] min-w-[245px]"}`}>
       <img
-        className="rounded-[20px]"
+        className="rounded-[20px] max-w-[245px] max-h-[230px]"
         src={
-          product.image ??
-          "https://pos.nvncdn.net/fb2e20-2071/ps/20230109_6ZjO99ReNm9VK4r4.jpg"
+          product.images
+            ? product.images[0]
+            : "https://pos.nvncdn.net/fb2e20-2071/ps/20230109_6ZjO99ReNm9VK4r4.jpg"
         }
         alt="lksjdf"
         width={245}
         height={230}
       />
       {/* <ImageAndGifNew
-        src={product.image}
+        src={product.images[0]}
         alt={"Shoe"}
         className="relative pt-[100%]"
         rounded="rounded-[20px]"
       /> */}
 
       <div className="my-[10px] text-xl h-14 font-semibold mint-ellipsis ">
-        {product.title}
+        {product.name}
       </div>
       <div>
         <span className="text-lg leading-4 mr-2 font-bold">

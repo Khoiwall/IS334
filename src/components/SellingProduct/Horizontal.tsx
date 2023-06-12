@@ -4,14 +4,7 @@ import ImageAndGifNew from "@/components/ImageAndGifNew";
 import RatingStar from "@/components/RatingStar";
 
 interface Props {
-  product: {
-    id: number;
-    title: string;
-    price: number;
-    image: string;
-    discount: number;
-    rating: number;
-  };
+  product: any;
 }
 export default function Horizontal({ product }: Props) {
   return (
@@ -19,24 +12,25 @@ export default function Horizontal({ product }: Props) {
       className={`flex w-[210px] h-[76px] min-w-[210px] p-[6px] bg-[#110b14] bg-opacity-60 rounded-[10px]`}
     >
       <img
-        className="rounded-[10px]"
+        className="rounded-[10px] max-w-[64px] max-h-[64px]"
         src={
-          product.image ??
-          "https://pos.nvncdn.net/fb2e20-2071/ps/20230109_6ZjO99ReNm9VK4r4.jpg"
+          product.images
+            ? product.images[0]
+            : "https://pos.nvncdn.net/fb2e20-2071/ps/20230109_6ZjO99ReNm9VK4r4.jpg"
         }
         alt="lksjdf"
         width={64}
         height={64}
       />
       {/* <ImageAndGifNew
-        src={product.image}
+        src={product.images[0]}
         alt={"Shoe"}
         className="relative pt-[100%]"
         rounded="rounded-[20px]"
       /> */}
-      <div className="flex-1 ml-[6px] relative">
-        <div className="my-[2px] text-xs text h-[30px] font-semibold mint-ellipsis ">
-          {product.title}
+      <div className="flex-1 flex flex-col ml-[6px] relative">
+        <div className="my-[2px] text-xs text font-semibold mint-ellipsis flex-1">
+          {product.name || ""}
         </div>
         <div className="h-4">
           <span className="text-[12px] leading-[14px] mr-2 font-bold">

@@ -1,43 +1,37 @@
 import ButtonComponent from "@/components/ButtonComponent";
-import { IconPlus, IconShare01, IconShare06 } from "@/components/Icon/Generate";
-import ImageAndGifNew from "@/components/ImageAndGifNew";
-import RatingStar from "@/components/RatingStar";
+import { IconHeart, IconPlus } from "@/components/Icon/Generate";
+import { BigNum } from "@/utils/bigNum";
+import ConvertICon from "../ConvertIcon";
 
 interface Props {
-  product: {
-    id: number;
-    title: string;
-    price: number;
-    image: string;
-    discount: number;
-    rating: number;
-  };
+  product: any;
 }
 export default function Small({ product }: Props) {
   return (
-    <div className={`w-[110px] h-[190px] min-w-[110px] @container`}>
+    <div className={`w-[110px] h-[190px] min-w-[110px] flex flex-col`}>
       <img
-        className="rounded-[20px]"
+        className="rounded-[20px] max-w-[110px] max-h-[110px]"
         src={
-          product.image ??
-          "https://pos.nvncdn.net/fb2e20-2071/ps/20230109_6ZjO99ReNm9VK4r4.jpg"
+          product.images
+            ? product.images[0]
+            : "https://pos.nvncdn.net/fb2e20-2071/ps/20230109_6ZjO99ReNm9VK4r4.jpg"
         }
         alt="lksjdf"
         width={110}
         height={110}
       />
       {/* <ImageAndGifNew
-        src={product.image}
+        src={product.images[0]}
         alt={"Shoe"}
         className="relative pt-[100%]"
         rounded="rounded-[20px]"
       /> */}
 
-      <div className="my-[2px] text-xs text h-[30px] font-semibold mint-ellipsis ">
-        {product.title}
+      <div className="my-[2px] text-xs text font-semibold mint-ellipsis flex-1">
+        {product.name || "asf"}
       </div>
-      <div className="h-4">
-        <span className="text-[12px] leading-[14px] mr-2 font-bold">
+      <div className="">
+        <span className="text-12 mr-2 font-bold">
           {product.discount !== 0
             ? product.price - (product.discount * product?.price) / 100
             : product?.price}{" "}
@@ -48,15 +42,19 @@ export default function Small({ product }: Props) {
           </s>
         )}
       </div>
-      <div className="flex justify-between items-center mt-0.5">
-        <RatingStar
-          widthStar="10"
-          heightStar="10"
-          fill="#FBD273"
-          rating={product.rating}
-          fillDefault="#252027"
-          classRatingText="text-[10px] leading-[10px]"
-        />
+      <div className="flex justify-between items-center my-0.5">
+        <div className="flex items-center gap-2">
+          <ConvertICon
+            Icon={IconHeart}
+            width="12"
+            height="12"
+            fill="#37F040"
+            stroke="#37F040"
+          />
+          <span className="text-12 font-semibold text-white">
+            {BigNum(product?.heart || 0)}
+          </span>
+        </div>
         <div>
           <ButtonComponent
             Icon={IconPlus}

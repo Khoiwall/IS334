@@ -1,68 +1,80 @@
 import ButtonComponent from "@/components/ButtonComponent";
-import { IconPlus, IconShare01, IconShare06 } from "@/components/Icon/Generate";
+import {
+  IconHeart,
+  IconPlus,
+  IconShare01,
+  IconShare06,
+} from "@/components/Icon/Generate";
 import ImageAndGifNew from "@/components/ImageAndGifNew";
 import RatingStar from "@/components/RatingStar";
+import { CartContext } from "@/context/CartContext";
+import { BigNum } from "@/utils/bigNum";
+import { useContext } from "react";
+import ConvertICon from "../ConvertIcon";
 
 interface Props {
-  product: {
-    id: number;
-    title: string;
-    price: number;
-    image: string;
-    discount: number;
-    rating: number;
-  };
+  product: any;
 }
 export default function Medium({ product }: Props) {
+  const { addProduct } = useContext(CartContext);
   return (
-    <div className={`w-[190px] min-w-[190px]`}>
+    <div className={`w-[190px] min-w-[190px] flex flex-col`}>
       <img
-        className="rounded-[12px]"
+        className="rounded-[12px] max-w-[190px] max-h-[190px]"
         src={
-          product.image ??
-          "https://pos.nvncdn.net/fb2e20-2071/ps/20230109_6ZjO99ReNm9VK4r4.jpg"
+          product.images
+            ? product.images[0]
+            : "https://pos.nvncdn.net/fb2e20-2071/ps/20230109_6ZjO99ReNm9VK4r4.jpg"
         }
         alt="lksjdf"
         width={190}
         height={190}
       />
       {/* <ImageAndGifNew
-        src={product.image}
+        src={product.images[0]}
         alt={"Shoe"}
         className="relative pt-[100%]"
         rounded="rounded-[20px]"
       /> */}
 
-      <div className="my-[8px] text-[18px] leading-[22px] h-[44px] font-semibold mint-ellipsis ">
-        {product.title}
+      <div className="my-[8px] text-16 font-semibold mint-ellipsis flex-1">
+        {product.name}
       </div>
       <div>
-        <span className="text-lg leading-4 mr-2 font-semibold">
+        <span className="text-16 mr-2 font-semibold">
           {product.discount !== 0
             ? product.price - (product.discount * product?.price) / 100
             : product?.price}{" "}
           vnd
         </span>
         {product?.discount !== 0 && (
-          <s className=" text-xs align-top text-[#706D72] leading-4 font-bold">
+          <s className="text-12 align-top text-[#706D72] leading-4 font-bold">
             {product.price} vnd
           </s>
         )}
       </div>
       <div className="mt-[8px] flex justify-between items-center">
-        <RatingStar
-          widthStar="14"
-          heightStar="14"
-          fill="#FBD273"
-          rating={product.rating}
-          fillDefault="#252027"
-        />
+        <div className="flex items-center gap-2">
+          <ConvertICon
+            Icon={IconHeart}
+            width="18"
+            height="18"
+            fill="#37F040"
+            stroke="#37F040"
+          />
+          <span className="text-12 font-semibold text-white">
+            {BigNum(product?.heart)}
+          </span>
+        </div>
         <ButtonComponent
           Icon={IconPlus}
+          onClick={() => {
+            addProduct(product, 1);
+          }}
           icon={true}
-          padding="p-[9px]"
+          padding="p-1.5"
           infoIcon={{ width: "18", height: "18", stroke: "white" }}
-          className="bg-[#252027] hover:bg-primary rounded-lg hover:text-[#252027] hover-svg w-8 h-8"
+          className="bg-[#252027] hover:bg-primary rounded-lg hover:text-[#252027] hover-svg w-7 h-7"
         />
       </div>
     </div>
