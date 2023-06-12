@@ -1,5 +1,6 @@
-import { BANNERS, PRODUCTS, VIDEOS } from "@/contants/DATABANNER";
-import { useRef, useState } from "react";
+import { ProductAPI } from "@/api";
+import { BANNERS, VIDEOS } from "@/contants/DATABANNER";
+import { useEffect, useRef, useState } from "react";
 import LayoutBanner from "./Banner";
 import HeaderHomePage from "./HeaderHomePage";
 import LoadingBanner from "./Loading/Banner";
@@ -9,16 +10,14 @@ import VideosHomePage from "./Videos";
 function Home() {
   const [banners, setBanner] = useState<any>(BANNERS);
   const [videoList, setVideoList] = useState<any>(VIDEOS);
-  const [products, setProduct] = useState<any>(PRODUCTS);
+  const [products, setProduct] = useState<any>([]);
   const [shops, setShops] = useState<any>(["123"]);
-  const [isLoadingProduct, setIsLoadingProduct] = useState<boolean>(true);
+  const [isLoadingProduct, setIsLoadingProduct] = useState<boolean>(false);
   const [isLoadingBanner, setIsLoadingBanner] = useState<boolean>(true);
   const [isLoadingVideo, setIsLoadingVideo] = useState<boolean>(true);
-  const [isLoadingShop, setIsLoadingShop] = useState<boolean>(false);
   const sliderVideo = useRef(null);
   const sliderVideoPlayPB = useRef(null);
 
-  console.log(videoList);
   const nextOrPrevVideo = (isNext: boolean, isVideoPB?: boolean) => {
     if (isVideoPB) {
       if (isNext) {
@@ -34,6 +33,20 @@ function Home() {
       }
     }
   };
+  console.log(products);
+  const getProducts = async () => {
+    const response = await ProductAPI.getProducts();
+    console.log(response);
+    if (response && (response?.status === 201 || response?.status === 200)) {
+      console.log(1123);
+      setProduct(response?.data?.data);
+    }
+    setIsLoadingProduct(true);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <div className="pt-[54px] py-16">
@@ -74,3 +87,6 @@ function Home() {
   );
 }
 export default Home;
+function async(arg0: () => void, arg1: never[]) {
+  throw new Error("Function not implemented.");
+}

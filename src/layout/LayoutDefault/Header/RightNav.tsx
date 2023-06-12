@@ -6,6 +6,7 @@ import { SignContext } from "@/context/SignContext";
 import { useAppSelector } from "@/hook/reduxHook";
 import { IconUser } from "@/icons/Users";
 import { useContext, useState } from "react";
+import Cart from "./Cart";
 import ModalHeader from "./Modal";
 
 function RightNav() {
@@ -34,27 +35,35 @@ function RightNav() {
           />
         </div>
       ) : (
-        <div
-          className={`${
-            FLEX["center"]
-          } cursor-pointer w-[30px] h-[30px] relative ${
-            user ? "" : "hover:bg-[#53535f7a] rounded"
-          }`}
-          onClick={() => {
-            setOpenModal(!openModal);
-          }}
-        >
-          {user ? (
-            <ImageAndGifNew
-              src={user?.avatar}
-              alt={user?.name}
-              className={"relative pt-[30px] pl-[30px]"}
-              rounded="rounded-full"
-            />
-          ) : (
-            <ConvertICon Icon={IconUser} width="20" height="20" fill="white" />
-          )}
-          {openModal ? <ModalHeader setOpenModal={setOpenModal} /> : null}
+        <div className="flex items-center gap-3">
+          <Cart />
+          <div
+            className={`${
+              FLEX["center"]
+            } cursor-pointer w-[30px] h-[30px] relative ${
+              user ? "" : "hover:bg-[#53535f7a] rounded"
+            }`}
+            onClick={() => {
+              setOpenModal(!openModal);
+            }}
+          >
+            {user ? (
+              <ImageAndGifNew
+                src={user?.avatar}
+                alt={user?.name}
+                className={"relative pt-[30px] pl-[30px]"}
+                rounded="rounded-full"
+              />
+            ) : (
+              <ConvertICon
+                Icon={IconUser}
+                width="20"
+                height="20"
+                fill="white"
+              />
+            )}
+            {openModal ? <ModalHeader setOpenModal={setOpenModal} /> : null}
+          </div>
         </div>
       )}
     </div>
