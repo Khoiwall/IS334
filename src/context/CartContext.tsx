@@ -30,13 +30,14 @@ export function CartProvider({ children }: Props) {
   const [isLoadingCart, setIsLoadingCart] = useState<boolean>(false);
   const addProduct = async (product: any, quatity: number = 1) => {
     const checkProduct = cart?.filter((_product: any) => {
-      return _product?.product_id === product?._id;
+      return _product?.product_id?._id === product?._id;
     });
     if (checkProduct?.length > 0) {
       setCart((prev: any[]) => {
         return prev?.map((_product) => {
-          return _product?.product_id === product?._id
+          return _product?.product_id?._id === product?._id
             ? {
+                ..._product,
                 quatity: _product?.quatity + quatity,
               }
             : _product;

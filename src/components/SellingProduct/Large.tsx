@@ -2,6 +2,7 @@ import ButtonComponent from "@/components/ButtonComponent";
 import { IconPlus, IconShare01, IconShare06 } from "@/components/Icon/Generate";
 import ImageAndGifNew from "@/components/ImageAndGifNew";
 import RatingStar from "@/components/RatingStar";
+import Link from "next/link";
 
 interface Props {
   product: any;
@@ -28,9 +29,11 @@ export default function Large({ product, setWidth }: Props) {
         rounded="rounded-[20px]"
       /> */}
 
-      <div className="my-[10px] text-xl h-14 font-semibold mint-ellipsis ">
-        {product.name}
-      </div>
+      <Link href={`/product/${product?._id}`}>
+        <div className="my-[10px] text-xl h-14 font-semibold mint-ellipsis hover:text-primary">
+          {product.name}
+        </div>
+      </Link>
       <div>
         <span className="text-lg leading-4 mr-2 font-bold">
           {product.discount === 0
