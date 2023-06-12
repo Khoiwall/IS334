@@ -12,6 +12,7 @@ interface Props {
 }
 
 function ProductOnCart({ product }: Props) {
+  console.log(product);
   const [quantity, setQuatity] = useState<number>(product?.quatity);
   const productTmp = product?.product_id as any;
   const { removeProduct } = useContext(CartContext);

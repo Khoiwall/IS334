@@ -10,6 +10,7 @@ interface Props {
   maxHeight?: string;
   children: ReactNode;
   zIndex?: string;
+  maxWidth?: string;
 }
 
 function ModalNew({
@@ -20,11 +21,12 @@ function ModalNew({
   children,
   maxHeight,
   zIndex,
+  maxWidth,
 }: Props) {
   return (
     <div
       className={`${
-        zIndex || "z-[5000]"
+        zIndex || "z-[1000]"
       } fixed top-0 left-0 w-full h-full bg-black/20 p-8`}
     >
       <div className="overflow-auto h-full">
@@ -36,14 +38,18 @@ function ModalNew({
           <div
             className={`flex flex-col relative  bg-[#1B161E] rounded-2xl ${
               minWidth || "min-w-[690px]"
-            } ${minHeight || "min-h-[662px]"} ${maxHeight || "max-h-[662px]"}`}
+            } ${maxWidth || "max-w-[1008px]"} ${minHeight || "min-h-[662px]"} ${
+              maxHeight || "max-h-[662px]"
+            }`}
           >
             <div className="border-solid border-b border-[#303030]">
               <div className="px-9 py-[18px]">
                 <div className="flex items-center justify-between">
                   <div className="relative">
                     <div className="flex">
-                      <h4 className="text-20 font-['Poppins'] text-bold">{title}</h4>
+                      <h4 className="text-20 font-['Poppins'] text-bold">
+                        {title}
+                      </h4>
                     </div>
                   </div>
                   <ButtonComponent

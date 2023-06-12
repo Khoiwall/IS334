@@ -24,7 +24,7 @@ const USER = [
   {
     title: "Quản lý Videos",
     Icon: IconManageContent,
-    url: "/management/manage-content",
+    url: "/management/videos",
   },
   {
     title: "Quản lý Kho",

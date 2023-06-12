@@ -50,22 +50,6 @@ function FormInputProduct({ product, setProduct }: any) {
         padding="p-3"
         textSize="text-sm"
       />
-      <LayOutInput
-        sign={{
-          title: "Giảm giá",
-          isRequire: false,
-          type: "number",
-          placeholder: "Giảm giá",
-          name: "discount",
-          min: 0,
-          max: 100,
-        }}
-        defaultValue={product?.discount}
-        className={"bg-[#110B14] outline-none w-full"}
-        backGroundInput="bg-[#110B14]"
-        padding="p-3"
-        textSize="text-sm"
-      />
     </div>
   );
 }

@@ -20,11 +20,12 @@ function ModalEdit({ setOpenModal, product, setProduct, setItems }: any) {
     setIsLoading(true);
     const toastId = toast.loading("Đang sửa...");
     const option = {
+      _id: product?._id,
       name: e?.target?.nameProduct?.value,
       bio: product?.bio,
       images: product?.images,
       price: parseFloat(e?.target?.price?.value),
-      discount: parseFloat(e?.target?.discount?.value || 0),
+      discount: parseFloat(product?.discount || 0),
     };
     const response = await ProductAPI.updateProduct(product?._id, option);
     if (response && (response?.status === 200 || response?.status === 201)) {

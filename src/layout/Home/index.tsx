@@ -1,4 +1,4 @@
-import { ProductAPI } from "@/api";
+import { ProductAPI, VideoAPI } from "@/api";
 import { BANNERS, VIDEOS } from "@/contants/DATABANNER";
 import { useEffect, useRef, useState } from "react";
 import LayoutBanner from "./Banner";
@@ -9,7 +9,7 @@ import VideosHomePage from "./Videos";
 
 function Home() {
   const [banners, setBanner] = useState<any>(BANNERS);
-  const [videoList, setVideoList] = useState<any>(VIDEOS);
+  const [videoList, setVideoList] = useState<any>([]);
   const [products, setProduct] = useState<any>([]);
   const [shops, setShops] = useState<any>(["123"]);
   const [isLoadingProduct, setIsLoadingProduct] = useState<boolean>(false);
@@ -33,10 +33,8 @@ function Home() {
       }
     }
   };
-  console.log(products);
   const getProducts = async () => {
     const response = await ProductAPI.getProducts();
-    console.log(response);
     if (response && (response?.status === 201 || response?.status === 200)) {
       console.log(1123);
       setProduct(response?.data?.data);
@@ -44,8 +42,18 @@ function Home() {
     setIsLoadingProduct(true);
   };
 
+  const getVideos = async () => {
+    const response = await VideoAPI.getVideosHaveProduct();
+    console.log(response);
+    if (response && (response?.status === 201 || response?.status === 200)) {
+      setVideoList(response?.data?.data);
+    }
+    setIsLoadingVideo(true);
+  };
+
   useEffect(() => {
     getProducts();
+    getVideos();
   }, []);
 
   return (

@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "video-react/dist/video-react.css";
 import { NextPageWithLayout } from "@/interfaces/core";
 import { AppProps } from "next/app";
 import { Provider } from "react-redux";

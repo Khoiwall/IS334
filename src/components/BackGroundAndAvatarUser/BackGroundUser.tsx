@@ -42,7 +42,7 @@ function BackGroundUser({
     //     toast.success("Edit image cover success");
     //   }
     // } else {
-    //   toast.error("Upload file cover image err");
+    //   toast.error("Thêm file cover image err");
     // }
 
     setIsloading(false);

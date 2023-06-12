@@ -45,7 +45,7 @@ function AvatarUser({
     //     toast.success("Edit avatar success");
     //   }
     // } else {
-    //   toast.error("Upload file avatar err");
+    //   toast.error("Thêm file avatar err");
     // }
     setIsloading(false);
   };

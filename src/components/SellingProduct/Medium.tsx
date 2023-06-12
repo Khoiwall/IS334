@@ -11,6 +11,7 @@ import { CartContext } from "@/context/CartContext";
 import { BigNum } from "@/utils/bigNum";
 import Link from "next/link";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 import ConvertICon from "../ConvertIcon";
 
 interface Props {
@@ -39,7 +40,7 @@ export default function Medium({ product }: Props) {
       /> */}
 
       <Link href={`/product/${product?._id}`} className="mint-ellipsis block">
-        <div className="my-[8px] text-16 font-semibold mint-ellipsis hover:text-primary">
+        <div className="my-[8px] h-8 text-16 font-semibold mint-ellipsis hover:text-primary">
           {product.name}
         </div>
       </Link>
@@ -51,9 +52,9 @@ export default function Medium({ product }: Props) {
           vnd
         </span>
         {product?.discount !== 0 && (
-          <s className="text-12 align-top text-[#706D72] leading-4 font-bold">
+          <span className="text-12 align-top text-[#706D72] leading-4 font-bold">
             {product.price} vnd
-          </s>
+          </span>
         )}
       </div>
       <div className="mt-[8px] flex justify-between items-center">
@@ -72,6 +73,7 @@ export default function Medium({ product }: Props) {
         <ButtonComponent
           Icon={IconPlus}
           onClick={() => {
+            toast.success("Thêm sản phẩm thành công");
             addProduct(product, 1);
           }}
           icon={true}

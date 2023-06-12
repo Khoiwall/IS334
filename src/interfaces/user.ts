@@ -5,4 +5,5 @@ export type User = {
   avatar: string;
   coverImage: string;
   bio: string;
+  product_id: string[];
 };

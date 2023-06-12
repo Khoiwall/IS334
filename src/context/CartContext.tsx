@@ -49,13 +49,13 @@ export function CartProvider({ children }: Props) {
         {
           user_id: user?._id,
           product_id: product,
-          quatity: 1,
+          quatity: quatity,
         },
       ]);
     }
     const response = await CartAPI.addProductOnCart(
       product?._id,
-      checkProduct?.length > 0 ? product?.quatity + quatity : 1
+      checkProduct?.length > 0 ? checkProduct[0]?.quatity + quatity : 1
     );
     if (response && response?.data?.status === "Success") {
     } else {
