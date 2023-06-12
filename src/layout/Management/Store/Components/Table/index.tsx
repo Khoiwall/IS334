@@ -47,7 +47,7 @@ export default function Table({
         <div className="text-12 grow-[2] text-left min-w-[350px] ">
           <div className="flex items-center lg:gap-10 gap-9 border-y border-solid border-[#303030] py-[21px] px-10  h-[63px]">
             <CheckBox onChecked={onCheckAll} isChecked={isSelectAll} />
-            <span>Products</span>
+            <span>Sản phẩm</span>
           </div>
           {items
             .filter((item) => item.name?.includes(searchText))
@@ -75,15 +75,15 @@ export default function Table({
         </div>
         <div className=" overflow-y-auto grow-[3] border-l border-solid border-[#303030] md:border-transparent pr-10">
           <div
-            className="grid grid-cols-5 items-center justify-center py-[21px] min-w-[1024px] lg:min-w-[400px]
+            className="grid grid-cols-3 items-center justify-center py-[21px] min-w-[1024px] lg:min-w-[400px]
                           border-y border-[#303030] border-solid h-[63px]"
           >
-            <div className="text-12 ">Content</div>
+            {/* <div className="text-12 ">Content</div> */}
             {/* <div className="text-12 ">Listed </div> */}
-            <div className="text-12 ">Price </div>
-            <div className="text-12 ">Discount</div>
-            <div className="text-12">Category</div>
-            <div className="text-12 ">Actions</div>
+            <div className="text-12 ">Giá </div>
+            <div className="text-12 ">Giảm giá</div>
+            {/* <div className="text-12">Category</div> */}
+            <div className="text-12 ">Hành động</div>
           </div>
           {items
             .filter((item) => item.name?.includes(searchText))
@@ -121,7 +121,7 @@ export default function Table({
         >
           <div className="flex flex-col justify-center items-center w-full min-h-[500px] relative z-10">
             <div className="font-bold font-header text-20 mb-6">
-              Add products to your portfolio
+              Thêm sản phẩm vào kho
             </div>
             <ButtonComponent
               padding="py-[15px] px-5"
@@ -129,7 +129,7 @@ export default function Table({
               icon
               infoIcon={{ width: "16", height: "16" }}
               Icon={IconPlus}
-              title="ADD PRODUCTS"
+              title="Thêm sản phẩm"
               classNameText="pl-[10px] font-semibold"
               className=" hover:bg-[#27B12E] bg-primary text-[#252026] rounded-[8px]"
             />

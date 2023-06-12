@@ -14,7 +14,7 @@ import { IconPlus } from "@/components/Icon/Generate";
 import { ProductAPI } from "@/api";
 
 export default function Store() {
-  const tabs = ["PRODUCTS"];
+  const tabs = ["Sản phẩm"];
   const [currentTab, setCurrentTab] = useState<number>(0);
   const [products, setProducts] = useState<any[]>([]);
   const [isShowAddProductModal, setIsShowAddProductModal] =
@@ -54,9 +54,7 @@ export default function Store() {
         />
       )}
       <div className="flex items-center overflow-auto px-10">
-        <h1 className="font-['Poppins'] text-20 font-bold flex-1">
-          Product Portfolio
-        </h1>
+        <h1 className="font-['Poppins'] text-20 font-bold flex-1">Kho</h1>
         <div className="flex gap-4">
           <ButtonComponent
             padding="py-[15px] px-5"
@@ -64,7 +62,7 @@ export default function Store() {
             icon
             infoIcon={{ width: "16", height: "16" }}
             Icon={IconPlus}
-            title="ADD PRODUCTS"
+            title="Thêm sản phẩm"
             classNameText="pl-[10px] font-semibold"
             className=" hover:bg-[#27B12E] bg-primary text-[#252026] rounded-[8px]"
           />

@@ -34,7 +34,7 @@ function Action({ items, setItems, setSearchText }: Props) {
           <div className="flex md:w-[644px] w-full h-[52px] bg-container rounded-xl py-[15px] px-[23px]">
             <ConverICon Icon={IconSearchSm} stroke="white" />
             <input
-              placeholder="Search Products..."
+              placeholder="Tìm kiếm sản phẩm..."
               className="text-[16px] bg-container w-full ml-5 outline-none"
               onChange={(e) => setSearchText(e.target.value)}
             />
@@ -58,7 +58,7 @@ function Action({ items, setItems, setSearchText }: Props) {
               {items?.filter((video) => {
                 return video?.isSelected;
               })?.length || 0}
-              &nbsp;Selected
+              &nbsp;Chọn
             </span>
           </div>
           &nbsp;&nbsp;
