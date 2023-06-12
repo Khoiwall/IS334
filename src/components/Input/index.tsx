@@ -103,7 +103,9 @@ function LayOutInput({
           htmlFor={sign?.name}
           className={`mb-1.5 ${
             textSize ? textSize : "sm:text-xl text-base"
-          } font-bold text-white ${sign?.isRequire ? "required" : ""}`}
+          } text-start font-bold text-white ${
+            sign?.isRequire ? "required" : ""
+          }`}
         >
           {sign?.title}
         </label>
