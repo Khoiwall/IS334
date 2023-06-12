@@ -1,8 +1,12 @@
 import { User } from "@/interfaces/user";
+import { comment } from "./comment";
 import { createProduct } from "./createProduct";
 import { deleteProducts } from "./deleteProducs";
 import { deleteProduct } from "./deleteProduct";
+import { getComments } from "./getComments";
+import { getProduct } from "./getProduct";
 import { getProducts } from "./getProducts";
+import { heart } from "./heart";
 import { updateDiscount } from "./updateListPrice";
 import { updateProduct } from "./updateProduct";
 
@@ -40,6 +44,19 @@ class ProductAPI {
   }
   static async deleteProducs(_id: string[]) {
     return await deleteProducts(URL_PRODUCTS, _id);
+  }
+  static async getProduct(_id: string) {
+    return await getProduct(URL_PRODUCTS, _id);
+  }
+
+  static async comment(_id: string, content: string) {
+    return await comment(URL_PRODUCTS, _id, content);
+  }
+  static async getComments(_id: string, length: number = 0) {
+    return await getComments(URL_PRODUCTS, _id, length);
+  }
+  static async heart(_id: string, isLike: boolean) {
+    return await heart(URL_PRODUCTS, _id, isLike);
   }
 }
 export default ProductAPI;

@@ -1,12 +1,16 @@
 import ButtonComponent from "@/components/ButtonComponent";
 import { IconHeart, IconPlus } from "@/components/Icon/Generate";
+import { CartContext } from "@/context/CartContext";
 import { BigNum } from "@/utils/bigNum";
+import { useContext } from "react";
+import { toast } from "react-hot-toast";
 import ConvertICon from "../ConvertIcon";
 
 interface Props {
   product: any;
 }
 export default function Small({ product }: Props) {
+  const { addProduct } = useContext(CartContext);
   return (
     <div className={`w-[110px] h-[190px] min-w-[110px] flex flex-col`}>
       <img
@@ -27,19 +31,19 @@ export default function Small({ product }: Props) {
         rounded="rounded-[20px]"
       /> */}
 
-      <div className="my-[2px] text-xs text font-semibold mint-ellipsis flex-1">
+      <span className="my-[5px] text-10 font-semibold mint-ellipsis-one">
         {product.name || "asf"}
-      </div>
+      </span>
       <div className="">
-        <span className="text-12 mr-2 font-bold">
+        <span className="text-10 mr-1 font-bold">
           {product.discount !== 0
             ? product.price - (product.discount * product?.price) / 100
             : product?.price}{" "}
         </span>
         {product.discount !== 0 && (
-          <s className="text-[10px] leading-[14px] text-start text-[#706D72] font-semibold">
-            {product.price}
-          </s>
+          <span className="text-[10px] leading-[14px] text-start text-[#706D72] font-semibold">
+            -{product.discount}%
+          </span>
         )}
       </div>
       <div className="flex justify-between items-center my-0.5">
@@ -59,6 +63,10 @@ export default function Small({ product }: Props) {
           <ButtonComponent
             Icon={IconPlus}
             icon={true}
+            onClick={() => {
+              toast.success("Thêm sản phẩm thành công");
+              addProduct(product, 1);
+            }}
             padding="p-[9px]"
             infoIcon={{ width: "14", height: "14", stroke: "white" }}
             className="bg-[#252027] hover:bg-primary rounded-lg hover:text-[#252027] hover-svg w-6 h-6"

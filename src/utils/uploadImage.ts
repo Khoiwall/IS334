@@ -17,7 +17,7 @@ async function uploadImage(
     );
     thumbnails.push(thumbnailUrl);
   } else {
-    toast.error("Upload file collection image error");
+    toast.error("Thêm file collection image error");
     if (setIsLoading) setIsLoading(false);
     return;
   }

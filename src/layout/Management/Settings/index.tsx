@@ -33,7 +33,7 @@ function Settings() {
             (response as any)?.data?.file,
             avatar?.type as string
           ))
-        : toast.error("Upload file collection avatar err");
+        : toast.error("Thêm file collection avatar err");
     }
     if (fileCoverImage) {
       const response = await UploadAPI.uploadImg(fileCoverImage as File);
@@ -42,7 +42,7 @@ function Settings() {
             (response as any)?.data?.file,
             fileCoverImage?.type as string
           ))
-        : toast.error("Upload file collection coverImage err");
+        : toast.error("Thêm file collection coverImage err");
     }
     const option = {
       name: e?.target?.name?.value || user?.name,

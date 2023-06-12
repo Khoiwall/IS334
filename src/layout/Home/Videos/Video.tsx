@@ -3,16 +3,7 @@ import Carousel from "./Carousel";
 import SellingProduct from "@/components/SellingProduct";
 
 interface Props {
-  video: {
-    title: string;
-    image: string;
-    createdAt: string;
-    duration: string;
-    views: number;
-    isSellingProduct: Boolean;
-    sellingNFTs: any;
-    sellingProducts: any;
-  };
+  video: any;
   isLarge?: boolean;
 }
 export default function Video({ video, isLarge }: Props) {
@@ -34,11 +25,11 @@ export default function Video({ video, isLarge }: Props) {
           <div className="max-w-[190px] ml-4">
             <Carousel
               scrollWidth={200}
-              sizeOfItems={video.sellingProducts.length}
+              sizeOfItems={video.product_id.length}
               type="vertical"
               isLarge={true}
             >
-              {video.sellingProducts.map((product: any, index: number) => (
+              {video?.product_id.map((product: any, index: number) => (
                 <SellingProduct
                   key={index}
                   product={product}
@@ -49,10 +40,7 @@ export default function Video({ video, isLarge }: Props) {
           </div>
         </div>
         <div className="text-xl ml-3 mt-[14px] mb-[5px] leading-5 font-semibold">
-          {video.title}
-        </div>
-        <div className="text-[#8F8F8F] ml-3 font-semibold text-xs mb-[7px]">
-          {video.views} views . {video.createdAt} ago
+          {video.name}
         </div>
       </div>
     );
@@ -62,22 +50,22 @@ export default function Video({ video, isLarge }: Props) {
         <div className="flex min-w-[454px] w-[454px] h-[223px] border border-solid border-[#252027] rounded-[20px] p-4">
           <div className="w-[300px] h-[190px] relative">
             <ImageAndGifNew
-              src={video?.image}
+              src={video?.images[video?.currentImage]}
               alt="123"
               className="relative pt-[190px] pr-[300px]"
               rounded="rounded-[20px] "
             />
-            <div className="absolute bottom-[10px] right-[10px] w-[42px] h-[24px] bg-opacity-[0.24] bg-black rounded-[7px] align-middle text-center font-medium text-[10px] leading-[24px]">
+            {/* <div className="absolute bottom-[10px] right-[10px] w-[42px] h-[24px] bg-opacity-[0.24] bg-black rounded-[7px] align-middle text-center font-medium text-[10px] leading-[24px]">
               {video.duration ?? "20:12"}
-            </div>
+            </div> */}
           </div>
           <div className="max-w-[110px] ml-3 my">
             <Carousel
               scrollWidth={120}
-              sizeOfItems={video.sellingProducts.length}
+              sizeOfItems={video.product_id.length}
               type="vertical"
             >
-              {video.sellingProducts.map((product: any, index: number) => (
+              {video.product_id.map((product: any, index: number) => (
                 <SellingProduct
                   product={product}
                   key={index}
@@ -88,10 +76,7 @@ export default function Video({ video, isLarge }: Props) {
           </div>
         </div>
         <div className="text-[16px] ml-3 mt-4 mb-[5px] leading-5 font-semibold">
-          {video.title}
-        </div>
-        <div className="text-[#8F8F8F] ml-3 font-semibold text-xs">
-          {video.views} views {video.createdAt} ago
+          {video.name}
         </div>
       </div>
     );

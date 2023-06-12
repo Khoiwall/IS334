@@ -16,7 +16,7 @@ async function updateProduct(
       url: `${URL}/${_id}`,
       method: "PUT",
       data: {
-        option,
+        ...option,
       },
     });
     return response;
