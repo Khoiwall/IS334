@@ -21,6 +21,7 @@ function InforProductBanner({ banner }: Prop) {
                 {product.discount !== 0
                   ? product.price - (product.discount * product?.price) / 100
                   : product?.price}{" "}
+                vnd
               </span>
               {product.discount !== 0 && (
                 <span className="text-[10px] leading-[14px] text-start text-[#706D72] font-semibold">
