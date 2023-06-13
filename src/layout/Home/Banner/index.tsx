@@ -13,9 +13,9 @@ function LayoutBanner({ bannerList }: Prop) {
           <h2 className="font-['Inter'] font-bold text-[64px] leading-[112%] text-white">
             {"Mua & Bán nến thơm"}
           </h2>
-          <p className="text-lg text-white/80 mt-4">
+          {/* <p className="text-lg text-white/80 mt-4">
             {"Nhóm cho tui cái mô tả ở đây"}
-          </p>
+          </p> */}
         </div>
         <div className="flex-1 overflow-auto">
           <Banner bannerList={bannerList} />
