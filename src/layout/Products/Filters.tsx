@@ -33,6 +33,24 @@ export default function Filters({ products, setDisplayProducts }: any) {
       displayName: "200.000đ - 250.000đ",
       value: false,
     },
+    {
+      min: 250000,
+      max: 300000,
+      displayName: "250.000đ - 300.000đ",
+      value: false,
+    },
+    {
+      min: 300000,
+      max: 500000,
+      displayName: "300.000đ - 500.000đ",
+      value: false,
+    },
+    {
+      min: 500000,
+      max: 1000000,
+      displayName: "300.000đ - 1.000.000đ",
+      value: false,
+    },
   ];
   return (
     <div className="w-[200px] border-r border-solid border-slate-700">
