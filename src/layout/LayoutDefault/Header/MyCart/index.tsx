@@ -10,14 +10,15 @@ import { useAppDispatch } from "@/hook/reduxHook";
 
 interface Props {
   setOpenCart: any;
+  setOpenCheckout: any;
 }
 
-function MyCart({ setOpenCart }: Props) {
+function MyCart({ setOpenCart, setOpenCheckout }: Props) {
   const { cart } = useContext(CartContext);
   const dispatch = useAppDispatch();
   const onClickCheckout = async () => {
     // dispatch(setCartCheckout(cart));
-    router.push("/checkout");
+    setOpenCheckout(true);
     setOpenCart(false);
   };
   return (
