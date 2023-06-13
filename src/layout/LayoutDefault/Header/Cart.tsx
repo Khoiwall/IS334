@@ -4,15 +4,23 @@ import ButtonComponent from "@/components/ButtonComponent";
 import { IConShopping } from "@/components/Icon/Different";
 import { CartContext } from "@/context/CartContext";
 import MyCart from "./MyCart";
+import ModalCheckout from "./ModalCheckout";
 
 function Cart() {
   const { isLoadingCart, cart } = useContext(CartContext);
   const [openCart, setOpenCart] = useState<boolean>(false);
+  const [openCheckOut, setOpenCheckout] = useState<boolean>(false);
   return (
     <>
       {isLoadingCart ? (
         <>
-          {openCart && <MyCart setOpenCart={setOpenCart} />}
+          {openCheckOut && <ModalCheckout setOpenCheckout={setOpenCheckout} />}
+          {openCart && (
+            <MyCart
+              setOpenCheckout={setOpenCheckout}
+              setOpenCart={setOpenCart}
+            />
+          )}
           <div className="relative sm:block hidden">
             <ButtonComponent
               title=""

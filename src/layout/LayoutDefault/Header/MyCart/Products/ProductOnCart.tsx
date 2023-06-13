@@ -9,10 +9,10 @@ import { AnyArray } from "immer/dist/internal";
 
 interface Props {
   product: any;
+  checkout?: boolean;
 }
 
-function ProductOnCart({ product }: Props) {
-  console.log(product);
+function ProductOnCart({ product, checkout }: Props) {
   const [quantity, setQuatity] = useState<number>(product?.quatity);
   const productTmp = product?.product_id as any;
   const { removeProduct } = useContext(CartContext);
@@ -47,27 +47,32 @@ function ProductOnCart({ product }: Props) {
             </Link> */}
           </div>
           <div className="flex flex-1 justify-end">
-            <ButtonComponent
-              Icon={IconTrash}
-              infoIcon={{
-                width: "16",
-                height: "16",
-                stroke: "white",
-              }}
-              onClick={removeProductOnCart}
-              icon={true}
-              className="bg-container w-8 h-8 rounded-lg"
-              title=""
-              padding="p-0 gap-0"
-            />
+            {!checkout && (
+              <ButtonComponent
+                Icon={IconTrash}
+                infoIcon={{
+                  width: "16",
+                  height: "16",
+                  stroke: "white",
+                }}
+                onClick={removeProductOnCart}
+                icon={true}
+                className="bg-container w-8 h-8 rounded-lg"
+                title=""
+                padding="p-0 gap-0"
+              />
+            )}
           </div>
         </div>
         <div className="flex  items-center justify-between">
-          <QuantityProduct
-            product={product}
-            quatity={quantity}
-            setQuatity={setQuatity}
-          />
+          {!checkout && (
+            <QuantityProduct
+              product={product}
+              quatity={quantity}
+              setQuatity={setQuatity}
+            />
+          )}
+
           <div>
             <span className="text-16 mr-2 font-semibold">
               {product.discount !== 0
