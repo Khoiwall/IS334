@@ -12,7 +12,7 @@ function HeaderHomePage({ nextOrPrev, title, isVideoPB }: Prop) {
       <h2 className="text-xl sm:text-2xl font-bold text-white  sm:mt-[56px] mt-6 font-['Inter']">
         {title}
       </h2>
-      <div className="sm:flex hidden gap-2 items-end md:mr-7 mr-4">
+      {/* <div className="sm:flex hidden gap-2 items-end md:mr-7 mr-4">
         <div
           onClick={() => {
             nextOrPrev(false, isVideoPB);
@@ -27,7 +27,7 @@ function HeaderHomePage({ nextOrPrev, title, isVideoPB }: Prop) {
         >
           <NextCircle />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -45,7 +45,7 @@ function ProductDescription({ product }: Props) {
               />
               <div className="relaitve">
                 <div className="overflow-hidden">
-                  <span className="text-[14px] leading-[20px] font-semibold text-[#37F040]">
+                  <span className="text-[14px] leading-[20px] font-semibold text-[#A694BE]">
                     {BigNum(product?.ratingsTotal || 0)} reviews
                   </span>
                 </div>

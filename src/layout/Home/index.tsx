@@ -8,7 +8,6 @@ import ProductsHomepage from "./Products";
 import VideosHomePage from "./Videos";
 
 function Home() {
-  const [banners, setBanner] = useState<any>(BANNERS);
   const [videoList, setVideoList] = useState<any>([]);
   const [products, setProduct] = useState<any>([]);
   const [shops, setShops] = useState<any>(["123"]);
@@ -36,7 +35,6 @@ function Home() {
   const getProducts = async () => {
     const response = await ProductAPI.getProducts();
     if (response && (response?.status === 201 || response?.status === 200)) {
-      console.log(1123);
       setProduct(response?.data?.data);
     }
     setIsLoadingProduct(true);
@@ -44,7 +42,6 @@ function Home() {
 
   const getVideos = async () => {
     const response = await VideoAPI.getVideosHaveProduct();
-    console.log(response);
     if (response && (response?.status === 201 || response?.status === 200)) {
       setVideoList(response?.data?.data);
     }
@@ -61,8 +58,8 @@ function Home() {
       <div className="text-white">
         <div className="max-w-[1920px] 3xl:mx-auto 2xl:mx-14 xl:mx-10 md:mx-8 mx-4">
           {isLoadingBanner ? (
-            banners?.length !== 0 ? (
-              <LayoutBanner bannerList={banners} />
+            videoList?.length !== 0 ? (
+              <LayoutBanner bannerList={videoList} />
             ) : (
               <LoadingBanner />
             )

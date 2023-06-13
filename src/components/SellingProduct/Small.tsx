@@ -2,6 +2,7 @@ import ButtonComponent from "@/components/ButtonComponent";
 import { IconHeart, IconPlus } from "@/components/Icon/Generate";
 import { CartContext } from "@/context/CartContext";
 import { BigNum } from "@/utils/bigNum";
+import Link from "next/link";
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
 import ConvertICon from "../ConvertIcon";
@@ -31,9 +32,12 @@ export default function Small({ product }: Props) {
         rounded="rounded-[20px]"
       /> */}
 
-      <span className="my-[5px] text-10 font-semibold mint-ellipsis-one">
-        {product.name || "asf"}
-      </span>
+      <Link href={`/product/${product?._id}`} className="mint-ellipsis block">
+        <span className="my-[5px] text-10 font-semibold mint-ellipsis-one hover:text-primary">
+          {product.name || "asf"}
+        </span>
+      </Link>
+
       <div className="">
         <span className="text-10 mr-1 font-bold">
           {product.discount !== 0
@@ -52,8 +56,8 @@ export default function Small({ product }: Props) {
             Icon={IconHeart}
             width="12"
             height="12"
-            fill="#37F040"
-            stroke="#37F040"
+            fill="#A694BE"
+            stroke="#A694BE"
           />
           <span className="text-12 font-semibold text-white">
             {BigNum(product?.heart || 0)}

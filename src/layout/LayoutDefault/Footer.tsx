@@ -4,7 +4,10 @@ function Footer() {
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <a href="https://flowbite.com/" className="flex items-center">
+            <a
+              href="https://neferstore.vercel.app/"
+              className="flex items-center"
+            >
               <img
                 src="https://ucarecdn.com/b6f3c929-f963-4ad0-b024-e831a4990021/-/preview/200x200/-/quality/smart/-/format/auto/"
                 className="h-8 mr-3"
@@ -15,65 +18,26 @@ function Footer() {
               </span>
             </a>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-8 sm:gap-8 sm:grid-cols-3">
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Resources
+                Tên thành viên
               </h2>
               <ul className="text-gray-600 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <a href="https://flowbite.com/" className="hover:underline">
-                    Flowbite
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://tailwindcss.com/"
-                    className="hover:underline"
-                  >
-                    Tailwind CSS
-                  </a>
-                </li>
+                <li className="mb-4 hover:underline">Nguyễn Thị Bích Chi</li>
+                <li className="mb-4 hover:underline">Nguyễn Thị Tường Vi</li>
+                <li className="mb-4 hover:underline">Phạm Nguyễn Hà Vy</li>
+                <li className="mb-4 hover:underline">Cao Quảng An Hưng</li>
               </ul>
             </div>
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Follow us
+                Tên thành viên
               </h2>
               <ul className="text-gray-600 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <a
-                    href="https://github.com/themesberg/flowbite"
-                    className="hover:underline "
-                  >
-                    Github
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://discord.gg/4eeurUVvTy"
-                    className="hover:underline"
-                  >
-                    Discord
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Legal
-              </h2>
-              <ul className="text-gray-600 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:underline">
-                    Terms &amp; Conditions
-                  </a>
-                </li>
+                <li className="mb-4 hover:underline">Vũ Tiến Linh</li>
+                <li className="mb-4 hover:underline">Phan Minh Trí</li>
+                <li className="mb-4 hover:underline">Trần Đình Khôi</li>
               </ul>
             </div>
           </div>
@@ -83,7 +47,7 @@ function Footer() {
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
             <a href="https://flowbite.com/" className="hover:underline">
-              Flowbite™
+              Neferstore
             </a>
             . All Rights Reserved.
           </span>

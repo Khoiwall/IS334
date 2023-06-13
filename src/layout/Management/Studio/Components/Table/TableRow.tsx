@@ -54,7 +54,7 @@ export default function TableRow({ item, onSelected }: Props) {
           ) ?? "12/24/2023"}
         </div>
 
-        <div className="text-sm flex items-center justify-center text-[#37F040]">
+        <div className="text-sm flex items-center justify-center text-[#A694BE]">
           {item.numberComments ?? 0}
         </div>
       </div>

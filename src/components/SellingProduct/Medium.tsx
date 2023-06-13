@@ -52,9 +52,9 @@ export default function Medium({ product }: Props) {
           vnd
         </span>
         {product?.discount !== 0 && (
-          <span className="text-12 align-top text-[#706D72] leading-4 font-bold">
+          <s className="text-12 align-top text-[#706D72] leading-4 font-bold">
             {product.price} vnd
-          </span>
+          </s>
         )}
       </div>
       <div className="mt-[8px] flex justify-between items-center">
@@ -63,8 +63,8 @@ export default function Medium({ product }: Props) {
             Icon={IconHeart}
             width="18"
             height="18"
-            fill="#37F040"
-            stroke="#37F040"
+            fill="#A694BE"
+            stroke="#A694BE"
           />
           <span className="text-12 font-semibold text-white">
             {BigNum(product?.heart)}

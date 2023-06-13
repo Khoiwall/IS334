@@ -44,14 +44,14 @@ function FooterCart() {
               <Item
                 icon={true}
                 Icon={IconLock}
-                stroke="#37F040"
+                stroke="#A694BE"
                 text="Bạn sẽ không bị tính phí cho đến khi bạn xem lại đơn đặt hàng này trên trang tiếp theo"
                 classNameText={textSize}
               />
               <Item
                 icon={true}
                 Icon={IconLock}
-                stroke="#37F040"
+                stroke="#A694BE"
                 text="Neferstore Bảo vệ mua hàng"
                 classNameText={textSize}
               />

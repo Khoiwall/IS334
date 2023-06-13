@@ -46,7 +46,7 @@ export default function Store() {
 
   if (!user) return <NoLogin text={""} />;
   return (
-    <div className="font-['Inter'] text-white pt-[72px] flex flex-col min-h-screen">
+    <div className="font-['Inter'] text-white py-[72px] flex flex-col min-h-screen">
       {isShowAddProductModal && (
         <AddProductModal
           setItems={setProducts}

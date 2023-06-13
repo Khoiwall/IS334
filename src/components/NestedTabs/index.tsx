@@ -21,7 +21,9 @@ function NestedTabs({ marginBot, tabs, currentTab }: Props) {
                     <div className="overflow-hidden truncate max-w-[100px]">
                       <span
                         className={`${
-                          currentTab === tab && currentTab ? "text-[#37F040]" : ""
+                          currentTab === tab && currentTab
+                            ? "text-[#A694BE]"
+                            : ""
                         } text-[13px] leading-[20px] font-medium`}
                       >
                         {tab}
@@ -30,7 +32,10 @@ function NestedTabs({ marginBot, tabs, currentTab }: Props) {
                   </div>
                 </div>
               ) : (
-                <div key={tab} className="flex items-center overflow-hidden gap-1">
+                <div
+                  key={tab}
+                  className="flex items-center overflow-hidden gap-1"
+                >
                   <ConverICon
                     Icon={IconChevronRight}
                     width="20"
@@ -42,7 +47,9 @@ function NestedTabs({ marginBot, tabs, currentTab }: Props) {
                       <div className="overflow-hidden truncate max-w-[100px]">
                         <span
                           className={`${
-                            currentTab === tab && currentTab ? "text-[#37F040]" : ""
+                            currentTab === tab && currentTab
+                              ? "text-[#A694BE]"
+                              : ""
                           } text-[14px] leading-[20px] font-medium`}
                         >
                           {tab}

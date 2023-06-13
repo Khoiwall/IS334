@@ -25,7 +25,7 @@ module.exports = {
       colors: {
         default: "text-white",
         "t-primary": "#110B14",
-        primary: "#37F040",
+        primary: "#A694BE",
         "outline-primary": "#252026",
         container: "#1B161E",
       },

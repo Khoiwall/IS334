@@ -5,6 +5,7 @@ interface Prop {
 }
 
 function LayoutBanner({ bannerList }: Prop) {
+  console.log(bannerList);
   return (
     <div className="md:block hidden  pt-8 lg:mx-auto max-w-custom w-full">
       <div className="flex items-center 2xl:pl-20 xl:pl-10 px-8">

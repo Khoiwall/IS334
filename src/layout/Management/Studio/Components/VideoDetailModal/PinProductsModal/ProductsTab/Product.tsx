@@ -52,7 +52,7 @@ export default function Product({ product }: Props) {
               Icon={IconCheck}
               width="14"
               height="14"
-              stroke="#37F040"
+              stroke="#A694BE"
             />
           )
         )}

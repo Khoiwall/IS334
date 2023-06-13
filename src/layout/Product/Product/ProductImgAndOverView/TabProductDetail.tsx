@@ -17,12 +17,12 @@ function TabProductDetail({ tab, setTab }: Props) {
             >
               <div
                 className={`${
-                  tab === 0 ? "border-[#37F040]" : "border-[#303030]/0"
-                } h-full pb-3 border-b-2 border-solid hover:border-[#37F040] hover:text-[#37F040]`}
+                  tab === 0 ? "border-[#A694BE]" : "border-[#303030]/0"
+                } h-full pb-3 border-b-2 border-solid hover:border-[#A694BE] hover:text-[#A694BE]`}
               >
                 <span
                   className={`text-[16px] leading-[24px] font-semibold ${
-                    tab === 0 ? "text-[#37F040]" : ""
+                    tab === 0 ? "text-[#A694BE]" : ""
                   }`}
                 >
                   Product Details
@@ -37,12 +37,12 @@ function TabProductDetail({ tab, setTab }: Props) {
             >
               <div
                 className={`${
-                  tab === 2 ? "border-[#37F040]" : "border-[#303030]/0"
-                } h-full pb-3 border-b-2 border-solid hover:border-[#37F040] hover:text-[#37F040]`}
+                  tab === 2 ? "border-[#A694BE]" : "border-[#303030]/0"
+                } h-full pb-3 border-b-2 border-solid hover:border-[#A694BE] hover:text-[#A694BE]`}
               >
                 <span
                   className={`text-[16px] leading-[24px] font-semibold ${
-                    tab === 2 ? "text-[#37F040]" : ""
+                    tab === 2 ? "text-[#A694BE]" : ""
                   }`}
                 >
                   Reviews

@@ -11,20 +11,20 @@ function CardBannerLive({ banner }: Props) {
       <div className="relative 2xl:min-h-[0px] min-h-[336px] pt-[56.25%] 2xl:mr-[68px] video-not-center">
         <div className="absolute top-0 left-0 w-full h-full border border-solid border-white/10 rounded-[24px]">
           <CardMedia
-            src={banner?.play_url}
+            src={banner?.link}
             component="video"
-            className="w-full h-full top-0  video"
+            className="w-full h-full top-0  video object-contain"
             loop
             muted
             autoPlay
             sx={{
-              objectFit: "fill",
+              objectFit: "contain",
               borderRadius: "24px",
             }}
-            poster={banner?.coverImage}
+            poster={banner?.images[banner?.currentImage]}
           />
           <ImageAndGifNew
-            src={banner?.coverImage || ""}
+            src={banner?.images[banner?.currentImage] || ""}
             alt={banner?.name || ""}
             className="relative w-full h-full img-slick"
             rounded="rounded-[24px]"

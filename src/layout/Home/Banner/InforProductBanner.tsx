@@ -5,7 +5,7 @@ interface Prop {
 }
 
 function InforProductBanner({ banner }: Prop) {
-  const product = banner?.products[0];
+  const product = banner?.product_id[0];
   return (
     <div className="flex flex-col justify-between">
       <div>
@@ -16,14 +16,23 @@ function InforProductBanner({ banner }: Prop) {
         </div>
         <div className="mt-[19px]">
           <div className="flex items-center gap-2.5">
-            <p className="text-[20px] leading-[24px] text-white font-semibold">
-              {(product?.price || 0).toFixed(2)} vnd
-            </p>
+            <div className="">
+              <span className="text-18 mr-1 font-bold">
+                {product.discount !== 0
+                  ? product.price - (product.discount * product?.price) / 100
+                  : product?.price}{" "}
+              </span>
+              {product.discount !== 0 && (
+                <span className="text-[10px] leading-[14px] text-start text-[#706D72] font-semibold">
+                  -{product.discount}%
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>
       <div className="mt-3">
-        <Link href={`/watch/${banner?._id}`}>
+        <Link href={`/product/${product?._id}`}>
           <div className="px-8 py-[14.5px] rounded-xl bg-primary hover:bg-primary/80 cursor-pointer inline-block">
             <p className="text-[16px] leading-[19px] font-semibold text-[#110B14]">
               Buy Now
